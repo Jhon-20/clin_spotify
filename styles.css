@@ -1,0 +1,307 @@
+:root{
+    --padding: 10px 20px;
+    --radius: 10px;
+    --fondo: #181818;
+    --efecto: all .5s;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.container aside{
+    width: 20%;
+    height: 100vh;
+    background-color: #000000;
+    padding: var(--padding);
+}
+.container aside .menu{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.container aside .menu a{
+    text-decoration: none;
+    padding: 10px 1rem;
+    color: #c5c5c5;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.container aside .menu a span{
+    margin-right: 8px;
+}
+.container aside .menu a.active{
+    background-color: #282828;
+    border-radius: 5px;
+    color: #ffffff;
+}
+.container aside .menu a:hover{
+    color: #ffffff;
+}
+.container section{
+    width: 80%;
+    height: 100vh;
+    color: #ffffff;
+    background-color: var(--fondo);
+    overflow-y: scroll;
+    padding-bottom: 5rem;
+}
+.container section::-webkit-scrollbar{
+    -webkit-appearance: none;
+}
+.container section::-webkit-scrollbar:vertical{
+    width: 7px;
+}
+.container section::-webkit-scrollbar-thumb{
+    background-color: #797979;
+}
+.container section header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    padding: var(--padding);
+    width: 80%;
+    background-color: #505053;
+    z-index: 2;
+}
+.container section header .botones_prev_next,.container section header .suscribcion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container section header .botones_prev_next span{
+    cursor: pointer;
+}
+.container section header .botones_prev_next span.btn_prev{
+    margin-right: 1em;
+}
+.container section header .suscribcion .mejora_cuenta{
+    margin-right: 1.5em;
+}
+.container section header .suscribcion .mejora_cuenta button{
+    background-color: #000000;
+    border: 1px solid #ffffff;
+    width: 250px;
+    padding: 0.8em 0;
+    color: #ffffff;
+    border-radius: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .2s;
+}
+.container section header .suscribcion .mejora_cuenta button:hover{
+    transform: scale(1.1);
+}
+.container section header .suscribcion .perfil{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #000000;
+    width: auto;
+    padding: .4em 5px;
+    border-radius: 30px;
+    cursor: pointer;
+    z-index: 2;
+}
+.container section header .suscribcion .perfil .circulo{
+    background-color: #333333;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circulo, .nombre{
+    margin-right: 5px;
+}
+.container section .contenedor_degradado, .container section .contenedor_contenido{
+    padding: var(--padding);
+}
+.container section .contenedor_degradado{
+    background: linear-gradient(#505053,#181818);
+    width: 100%;
+    margin-top: 61px;
+}
+.container section .contenedor_degradado .banner{
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(img/banner.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+.container section .contenedor_degradado .banner .cancion{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    margin: 1em;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
+.container section .contenedor_degradado .banner .cancion figure{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: var(--efecto);
+}
+.container section .contenedor_degradado .banner .cancion figure img{
+    width: 100%;
+    height: 100%;
+}
+.container section .contenedor_degradado .banner .cancion figure:hover:before{
+    position: absolute;
+    content: '';
+    background-color: rgba(0, 0,0,0.286);
+    width: 100%;
+    height: 100%;
+}
+.container section .contenedor_degradado .banner .cancion figure:hover:after{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-image: url(img/play.svg);
+    background-position: center;
+    background-size: cover;
+    width: 48px;
+    height: 48px;
+    background-repeat: no-repeat;
+}
+.container section .contenedor_degradado .banner .cancion figure:hover{
+    width: 100%;
+    transform: scale(1.2);
+}
+.container .contenedor_contenido .titulos{
+    text-align: start;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.container section .contenedor_contenido .generos,
+.container section .contenedor_contenido .podcast{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+.container section .contenedor_contenido .generos .cards{
+    transition: var(--efecto);
+    flex-basis: calc((100% / 3) - 20px);
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #282828;
+    cursor: pointer;
+    border-radius: var(--radius);
+    margin: 10px;
+}
+.container section .contenedor_contenido .generos .cards .card_imagen{
+    width: 80px;
+    height: 80px;
+}
+.container section .contenedor_contenido .generos .cards .card_imagen img{
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: var(--radius);
+    border-bottom-left-radius: var(--radius);
+}
+.container section .contenedor_contenido .generos .cards .card_text{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    width: calc(100% - 80px);
+}
+.container section .contenedor_contenido .generos .cards .card_text img{
+    opacity: 0;
+}
+.container section .contenedor_contenido .generos .cards:hover{
+    background: linear-gradient(#666666, #474747);
+}
+.container section .contenedor_contenido .generos .cards:hover img{
+    opacity: 1;
+    transition: var(--efecto);
+}
+.container section .contenedor_contenido .podcast .card_podcast{
+    transition: var(--efecto);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-basis: calc((100% / 4 ) - 20px);
+    margin: 10px;
+    background-color: #181818;
+    padding: 1em;
+    cursor: pointer;
+    border-radius: var(--radius);
+}
+.container section .contenedor_contenido .podcast .card_podcast:hover{
+    background-color: #282828;
+}
+.container section .contenedor_contenido .podcast .card_podcast img{
+    width: 100%;
+    height: 100%;
+}
+.container section .contenedor_contenido .podcast .card_podcast:hover img{
+    box-shadow: 5px 4px 10px hsl(0, 0%, 11%);
+}
+.container section .contenedor_contenido .podcast .card_podcast h4{
+    margin-top: 1em;
+}
+.container footer{
+    background: var(--fondo);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: var(--padding);
+    border-top: 1px solid #282828;
+    color: #ffffff;
+}
+.container footer .controles{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    padding-bottom: .5em;
+}
+.container footer .controles img{
+    margin: 0 .5em;
+}
+.container footer .progreso{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container footer .progreso .barra_progreso{
+    width: 40%;
+    height: 5px;
+    background-color: #282828;
+    border-radius: var(--radius);
+    margin: 0 1em;
+}
